@@ -1,0 +1,25 @@
+<p>login works!</p>
+<p> Auth : {{ isAuthenticated}} </p>
+<div [hidden]="isAuthenticated">
+  <div class="form-group">
+    <label for="name">Username</label>
+    <input type="text" class="form-control" id="name"
+      required
+      [(ngModel)]="loggedUser.username"
+      name="name"
+      />
+
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="text" class="form-control" id="password"
+      required
+      [(ngModel)]="loggedUser.password"
+      name="password"
+      />
+
+  </div>
+  <button (click)="onSubmit()" >Submit</button>
+</div>
+<button [disabled]="!isAuthenticated" [hidden]="!isAuthenticated" (click)="logout()" >LogOut</button>
