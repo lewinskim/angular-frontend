@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginComponent } from './login/login.component';
 import { ConfidentialComponent } from './confidential/confidential.component';
+import { AfterloginComponent } from './afterlogin/afterlogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ConfidentialComponent
+    ConfidentialComponent,
+    AfterloginComponent
   ],
   imports: [
     BrowserModule,

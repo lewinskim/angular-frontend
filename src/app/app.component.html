@@ -1,4 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
   <span>
     Welcome to {{ title }}!
@@ -6,6 +5,7 @@
   <span class="toolbar-spacer"></span>
   <span>
     <button mat-menu-item style="color: black;" [routerLink]="['/login']">login</button>
+    <button mat-menu-item style="color: black;" [routerLink]="['/afterlogin']">afterLogin</button>
     <button mat-menu-item style="color: black;" [routerLink]="['/confidential']">confidential</button>
   </span>
 </mat-toolbar>
