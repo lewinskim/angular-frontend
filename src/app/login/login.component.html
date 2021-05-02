@@ -1,4 +1,6 @@
-<p>login works!</p>
+<!-- <div class="container">
+  <h1>Please login</h1>
+      <form #loginForm="ngForm">
 <div [hidden]="isLoggedIn()">
   <div class="form-group">
     <label for="name">Username</label>
@@ -21,4 +23,41 @@
   </div>
   <button (click)="onSubmit()" >Submit</button>
 </div>
+</form>
+</div> -->
 <!-- <button [disabled]="!isLoggedIn()" [hidden]="!isLoggedIn()" (click)="logout()" >LogOut</button> -->
+<div class="container">
+  <div [hidden]="isLoggedIn()">
+    <h1>Login Form ver 2</h1>
+    <form (ngSubmit)="onSubmit(); loginForm.reset()" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="loggedUser.username" name="name"
+             #name="ngModel" />
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password"
+        required
+               [(ngModel)]="loggedUser.password" name="password"
+               #password="ngModel" />
+        <div [hidden]="password.valid || password.pristine"
+                    class="alert alert-danger">
+                 Password is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
+      <!-- <button type="button" class="btn btn-default" (click)="onSubmit(); loginForm.reset()">Login</button> -->
+      <!-- here event triggered by submit button is handled by (ngSubmit) in form -->
+    </form>
+  </div>
+
+</div>
