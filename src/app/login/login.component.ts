@@ -28,13 +28,27 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     let isAuth: boolean = this.service.authenticate(this.loggedUser);
     if (isAuth) {
+      this.login();
       this.isAuthenticated = isAuth;
       this.guard.setActivated(isAuth);
       this.secondAuthSrvc.setLoggedUser(this.loggedUser);
     }
   }
 
+  login(): void {
+    localStorage.setItem("token", "loggedin");
+  }
+
+  isLoggedIn(): boolean {
+    console.log("token");
+    console.log(localStorage.getItem("token"));
+    let check : boolean = "loggedin" == localStorage.getItem("token");
+    console.log(check);
+    return check;
+  }
+
   logout(): void {
+    localStorage.removeItem("token");
     this.isAuthenticated = false;
     this.guard.setActivated(false);
     this.secondAuthSrvc.deactivateUser();

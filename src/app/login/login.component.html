@@ -1,6 +1,6 @@
 <p>login works!</p>
 <p> Auth : {{ isAuthenticated}} </p>
-<div [hidden]="isAuthenticated">
+<div [hidden]="isLoggedIn()">
   <div class="form-group">
     <label for="name">Username</label>
     <input type="text" class="form-control" id="name"
@@ -22,4 +22,4 @@
   </div>
   <button (click)="onSubmit()" >Submit</button>
 </div>
-<button [disabled]="!isAuthenticated" [hidden]="!isAuthenticated" (click)="logout()" >LogOut</button>
+<button [disabled]="!isLoggedIn()" [hidden]="!isLoggedIn()" (click)="logout()" >LogOut</button>
