@@ -8,7 +8,7 @@
     <!-- <button mat-menu-item style="color: black;" *ngIf="isLoggedIn()" (click)="logout()" [routerLink]="['/login']">logout</button> -->
     <button mat-menu-item style="color: black;" *ngIf="!isLoggedIn()" [routerLink]="['/login']">login</button>
     <button mat-menu-item style="color: black;" *ngIf="isLoggedIn()" [routerLink]="['/afterlogin']">afterLogin</button>
-    <button mat-menu-item style="color: black;" *ngIf="isLoggedIn()" [routerLink]="['/confidential']">confidential</button>
+    <button mat-menu-item style="color: black;" *ngIf="canShowConfidential()" [routerLink]="['/confidential']">confidential</button>
   </span>
 </mat-toolbar>
 <router-outlet></router-outlet>

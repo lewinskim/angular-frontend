@@ -1,2 +1,2 @@
 <p>afterlogin works!</p>
-<button (click)="secondAuth()" >Second Authenthication</button>
+<button *ngIf="!canAccessConfidential()" (click)="secondAuth()" >Second Authenthication</button>

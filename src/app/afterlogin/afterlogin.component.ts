@@ -8,14 +8,17 @@ import { SecondauthService } from '../auth/secondauth.service';
 })
 export class AfterloginComponent implements OnInit {
 
-
   constructor(private secondauth: SecondauthService) { }
 
   ngOnInit(): void {
   }
 
-  secondAuth(): void{
+  secondAuth(): void {
     this.secondauth.performSecondAuth();
+  }
+
+  canAccessConfidential(): boolean {
+    return this.secondauth.isAuth();
   }
 
 }

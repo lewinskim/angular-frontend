@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { AuthUser } from '../auth/auth-user';
 import { AuthService } from '../auth/auth.service';
 import { AuthGuard } from '../auth/auth.guard';
-import { SecondauthService } from '../auth/secondauth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,6 @@ export class LoginService {
 
   constructor(
     private authService: AuthService,
-    private secondAuthService: SecondauthService,
     private guard: AuthGuard,
     private router: Router
   ) { }
@@ -28,7 +26,6 @@ export class LoginService {
 
   logout(): void {
     localStorage.removeItem("token");
-    this.secondAuthService.deactivateUser();
     this.guard.setActivated(false);
     this.router.navigate(['/login']);
   }
