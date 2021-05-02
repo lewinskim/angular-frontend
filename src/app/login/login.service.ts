@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthUser } from '../auth-user';
+import { AuthUser } from '../auth/auth-user';
 import { AuthService } from '../auth.service';
 import { AuthGuard } from '../auth.guard';
 import { SecondauthService } from '../auth/secondauth.service';
