@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthUser } from '../auth/auth-user';
-import { AuthService } from '../auth.service';
-import { AuthGuard } from '../auth.guard';
+import { AuthService } from '../auth/auth.service';
+import { AuthGuard } from '../auth/auth.guard';
 import { SecondauthService } from '../auth/secondauth.service';
 
 @Injectable({

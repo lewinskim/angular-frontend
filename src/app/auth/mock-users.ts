@@ -1,4 +1,4 @@
-import { AuthUser } from './auth/auth-user';
+import { AuthUser } from './auth-user';
 
 export const USERS: AuthUser[] = [
   {username: "Adam", password: "aaa"},
