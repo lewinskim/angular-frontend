@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
+  constructor(private loginService: LoginService) { };
+
+  isLoggedIn(): boolean {
+    return this.loginService.isLoggedIn();
+  }
+
+  logout(): void {
+    this.loginService.logout();
+  }
 }

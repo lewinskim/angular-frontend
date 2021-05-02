@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from "@angular/router";
 import { AuthUser } from '../auth/auth-user';
 import { AuthService } from '../auth/auth.service';
 import { AuthGuard } from '../auth/auth.guard';
@@ -12,7 +13,8 @@ export class LoginService {
   constructor(
     private authService: AuthService,
     private secondAuthService: SecondauthService,
-    private guard: AuthGuard
+    private guard: AuthGuard,
+    private router: Router
   ) { }
 
   login(user: AuthUser): void {
@@ -20,6 +22,7 @@ export class LoginService {
     if (isAuth) {
       localStorage.setItem("token", "loggedin");
       this.guard.setActivated(true);
+      this.router.navigate(['/afterlogin']);
     }
   }
 
@@ -27,6 +30,7 @@ export class LoginService {
     localStorage.removeItem("token");
     this.secondAuthService.deactivateUser();
     this.guard.setActivated(false);
+    this.router.navigate(['/login']);
   }
 
   public isLoggedIn(): boolean {
