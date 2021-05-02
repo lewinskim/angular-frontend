@@ -8,21 +8,15 @@ import { SecondAuthGuard } from './second-auth.guard';
 })
 export class SecondauthService {
 
-  private loggedInUser: AuthUser;
 
   constructor(private guard: SecondAuthGuard) { }
 
-  setLoggedUser(user: AuthUser): void {
-    this.loggedInUser = user;
-  }
-
   deactivateUser(): void {
-    this.loggedInUser = null;
     this.guard.setActivated(false);
   }
 
   performSecondAuth(): void {
-    if (this.loggedInUser != null) {
+    if (localStorage.getItem("token") != null) {
       this.guard.setActivated(true);
     }
   }
