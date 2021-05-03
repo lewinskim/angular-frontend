@@ -18,19 +18,20 @@ export class LoginService {
   login(user: AuthUser): void {
     let isAuth: boolean = this.authService.authenticate(user);
     if (isAuth) {
-      localStorage.setItem("token", "loggedin");
+      window.sessionStorage.setItem("token", "loggedin");
       this.guard.setActivated(true);
       this.router.navigate(['/afterlogin']);
     }
   }
 
   logout(): void {
-    localStorage.removeItem("token");
+    window.sessionStorage.removeItem("token");
+    // window.sessionStorage.clear();
     this.guard.setActivated(false);
     this.router.navigate(['/login']);
   }
 
   public isLoggedIn(): boolean {
-    return localStorage.getItem("token") != null;
+    return window.sessionStorage.getItem("token") != null;
   }
 }

@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   canShowConfidential(): boolean {
-    return this.loginService.isLoggedIn() == true && this.secondAuth.isAuth();
+    return (this.loginService.isLoggedIn() === true) && (this.secondAuth.isAuth() === true);
   }
 
 }

@@ -9,21 +9,22 @@ import { LoginService } from '../login/login.service';
 })
 export class SecondauthService {
 
-  constructor(private guard: SecondAuthGuard, private loginSrvc : LoginService) { }
+  constructor(private guard: SecondAuthGuard, private loginSrvc: LoginService) { }
 
   deactivateUser(): void {
     this.guard.setActivated(false);
-    localStorage.removeItem("confidential");
+    window.sessionStorage.removeItem("confidential");
   }
 
   performSecondAuth(): void {
     if (this.loginSrvc.isLoggedIn()) {
       this.guard.setActivated(true);
-      localStorage.setItem("confidential", "true");
+      // localStorage.removeItem("confidential");
+      window.sessionStorage.setItem("confidential", "true");
     }
   }
 
   isAuth(): boolean {
-    return localStorage.getItem("confidential") != null;
+    return window.sessionStorage.getItem("confidential") != null;
   }
 }
